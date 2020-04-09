@@ -30,6 +30,11 @@ namespace AupaWeb
                 defaults: new { controller = "User", action = "SignIn", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+                name: "UserInfo",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
+            );
         }
     }
 }

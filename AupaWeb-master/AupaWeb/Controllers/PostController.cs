@@ -206,40 +206,6 @@ namespace AupaWeb.Controllers
             return RedirectToAction("AddNewPost", "Post");
         }
 
-        public ActionResult Contact()
-        {
-            SQLServerConnector sqlServerConnector = new SQLServerConnector();
-            List<UserBasicDataObject> userlist;
-            List<PageBean> pageNumberList;
-            userlist = sqlServerConnector.GetUserList();
-            int pageTotalCount = sqlServerConnector.GetTotalCount();
 
-            PageOperation pageOperation = new PageOperation(pageTotalCount);
-            int currentPage = 1;
-            pageNumberList = pageOperation.GetPageNumberList();
-            int pageCount = pageOperation.GetPageCount();
-            int startPageNum = pageOperation.GetStartNumber(currentPage);
-            int endPageNum = pageOperation.GetEndNumber();
-            int previousPageNumber = 1;
-            int nextPageNumber = previousPageNumber + 1;
-            
-
-
-            PostDataViewModel postDataViewModel = new PostDataViewModel();
-            postDataViewModel.UserBasicData = userlist;
-            postDataViewModel.PageNumberList = pageNumberList;
-            postDataViewModel.PageCount = pageCount;
-            postDataViewModel.CurrentPage = currentPage;
-            postDataViewModel.StrPageNum = startPageNum;
-            postDataViewModel.EndPageNum = endPageNum;
-            postDataViewModel.PreviousPageNumber = previousPageNumber;
-            postDataViewModel.NextPageNumber = nextPageNumber;
-            postDataViewModel.FirstPage = true;
-            postDataViewModel.LastPage = false;
-
-            //ViewBag.ListOfPosts = listPosts;
-            //return View(listPosts);
-            return View(postDataViewModel);
-        }
     }
 }
