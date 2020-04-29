@@ -14,7 +14,7 @@ namespace AupaWeb.Controllers
             SQLServerConnector sqlServerConnector = new SQLServerConnector();
             List<PostDataObject> postList;
             List<CarouselDataObject> carouselsLis;
-            postList = sqlServerConnector.GetTopPostsList(5);
+            postList = sqlServerConnector.GetTopPostsList(3);
             carouselsLis = sqlServerConnector.GetCarouselList();
             indexModel.PostDataObjects = postList;
             indexModel.CarouselDataObjects = carouselsLis;

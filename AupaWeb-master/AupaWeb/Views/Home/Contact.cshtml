@@ -4,7 +4,7 @@
     <div class="container">
         <div class="py-5 text-center">
         </div>
-        
+
         <div class="panel-title">
             <p>
                 搜尋:@Html.TextBox("Search_Data", ViewBag.FilterValue as string)<br />
@@ -42,18 +42,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var eachPostData in Model.UserBasicData)
-                    {
-                        <tr>
-                        <td>@eachPostData.Zza01</td>
-                        <td>@eachPostData.Zza02</td>
-                        <td>@eachPostData.Zza03</td>
-                        <td>@eachPostData.Zza04</td>
-                        <td>@eachPostData.Zza05</td>
-                        <td>@eachPostData.Zza06</td>
-                        <td>@eachPostData.Zza07</td>
-                        </tr>
-                    }
                 </tbody>
             </table>
             <nav>

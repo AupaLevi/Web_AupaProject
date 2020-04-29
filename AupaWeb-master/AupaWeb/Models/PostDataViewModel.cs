@@ -26,6 +26,6 @@ namespace AupaWeb.Models
         public bool LastPage { get => lastPage; set => lastPage = value; }
         public bool FirstPage { get => firstPage; set => firstPage = value; }
 
-        public IEnumerable<UserBasicDataObject> UserBasicData { get; set; }
+        //public IEnumerable<UserBasicDataObject> UserBasicData { get; set; }
     }
 }

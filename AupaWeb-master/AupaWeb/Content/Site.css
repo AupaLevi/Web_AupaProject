@@ -21,12 +21,30 @@ input,
 select,
 textarea {
     max-width: 600px;
+    white-space: pre-line;
 }
 
-.container-fluid {
+.container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 30px;
     padding-right: 15px;
     width: 100%;
 }
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: #8b0000;
+}
+
+a:hover {
+    color: mediumpurple;
+}
+
+a:active {
+    color: red;
+}
+
