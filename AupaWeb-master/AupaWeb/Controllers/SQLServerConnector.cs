@@ -713,7 +713,5 @@ namespace AupaWeb.Controllers
             return userBasicDataObjectList;
         }
 
-       
-
     }
 }

@@ -19,6 +19,7 @@ namespace AupaWeb.Controllers
             //listPosts = sqlServerConnector.GetPostsList();
             int pageTotalCount = sqlServerConnector.GetTotalCount();
 
+
             PageOperation pageOperation = new PageOperation(pageTotalCount);
             int currentPage = 1;
             pageNumberList = pageOperation.GetPageNumberList();

@@ -37,5 +37,15 @@ namespace AupaWeb.Controllers
 
             return View();
         }
+
+        public ActionResult Error()
+        {
+            return Redirect("/Home/Index");
+        }
+
+        public ActionResult AupaIntroduce()
+        {
+            return View();
+        }
     }
 }

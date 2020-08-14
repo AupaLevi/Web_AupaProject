@@ -3,29 +3,33 @@
 }
 
 @model AupaWeb.Models.PhoneBookViewModel
+    
 
 
     <main role="main" class="container">
         <br />
         <br />
+        @Html.ValidationSummary()
         @using (Html.BeginForm("SearchPhoneBook", "PhoneBook", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
             <div class="col-md-4 order-md-2 mb-4">
                 <p>
-                    <label for="ColValue">搜尋文字</label>
+                    <label for="ColValue">搜尋姓名</label>
                     @Html.TextBoxFor(m => m.ColValue, new { @class = "form-control" })
                 </p>
                 <p>
-                    <label for="ColName">搜尋項目</label>
+                    <label for="ColName">搜尋部門</label>
                     @Html.DropDownListFor(m => m.Zza06, Model.SelectListItems, "Please select",
                                      new { @style = "width: 260px;", @class = "form-control" })
                 </p>
+
                 <button type="submit" name="Search" class="btn btn-primary">查詢</button>
 
             </div>
-            <button type="submit" name="Audit" class="btn btn-sm btn-outline-secondary">稽核室</button>
-            <button type="submit" name="TDD" class="btn btn-sm btn-outline-secondary">技術開發處</button>
-            <button type="submit" name="TD" class="btn btn-sm btn-outline-secondary">技術開發部</button>
+            <button type="submit" name="Audit" class="btncss btn btn-sm btn-outline-secondary">稽核室</button>
+            <button type="submit" name="TDD" class="btncss btn btn-sm btn-outline-secondary">技術開發處</button>
+            <button type="submit" name="TD" class="btncss btn btn-sm btn-outline-secondary">技術開發部</button>
             <button type="submit" name="ALS" class="btn btn-sm btn-outline-secondary">分析部</button>
             <button type="submit" name="TS" class="btn btn-sm btn-outline-secondary">技術整合部</button>
             <button type="submit" name="IO" class="btn btn-sm btn-outline-secondary">資訊處</button>
@@ -44,10 +48,9 @@
             <button type="submit" name="PP" class="btn btn-sm btn-outline-secondary">生管部</button>
             <button type="submit" name="WH" class="btn btn-sm btn-outline-secondary">倉庫部</button>
             <button type="submit" name="QS" class="btn btn-sm btn-outline-secondary">品質系統</button>
-            <button type="submit" name="AD" class="btn btn-sm btn-outline-secondary">行政管理處</button>
+
             <button type="submit" name="HR" class="btn btn-sm btn-outline-secondary">人資部</button>
             <button type="submit" name="PUR" class="btn btn-sm btn-outline-secondary">採購部</button>
-
         }
 
 
@@ -56,20 +59,52 @@
                 <thead class="thead-light">
                     <tr>
                         <th align="center" style="width: 200px">工號</th>
-                        <th style="width: 200px">成本中心</th>
-                        <th style="width: 200px">姓名</th>
-                        <th style="width: 200px">分機號碼</th>
+                        <th style="width: 250px">姓名</th>
+                        <th style="width: 200px">英文姓名</th>
+                        <th style="width: 300px">Email</th>
+                        <th style="width: 250px">分機號碼</th>
+                        <th style="width: 250px">職稱</th>
+                        <th style="width: 300px">部門</th>
+                        <th style="width: 250px">成本中心</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var eachUserData in Model.UserBasicDataList)
                     {
-                        <tr>
-                            <td>@eachUserData.Zza01</td>
-                            <td>@eachUserData.Zza06</td>
-                            <td>@eachUserData.Zza04</td>
-                            <td>@eachUserData.Zza07</td>
-                        </tr>
+                    <tr>
+                        <td>@eachUserData.Zza01</td>
+                        <td>
+                            <a href="mailto:@eachUserData.Zza05">
+                                <div style="height:100%;width:100%">
+                                    @eachUserData.Zza04
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mailto:@eachUserData.Zza05">
+                                <div style="height:100%;width:100%">
+                                    @eachUserData.Zza02.@eachUserData.Zza03
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mailto:@eachUserData.Zza05">
+                                <div style="height:100%;width:100%">
+                                    @eachUserData.Zza05
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mailto:@eachUserData.Zza05">
+                                <div style="height:100%;width:100%">
+                                    @eachUserData.Zza07
+                                </div>
+                            </a>
+                        </td>
+                        <td>@eachUserData.Zza08</td>
+                        <td>@eachUserData.Zzb02</td>
+                        <td>@eachUserData.Zza06</td>
+                    </tr>
                     }
                 </tbody>
             </table>

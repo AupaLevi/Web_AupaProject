@@ -1,49 +1,139 @@
-html,
-body {
-  height: 100%;
-}
 
 body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+.form-container {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+    .form-container .form-horizontal {
+        background: linear-gradient(-45deg, #B4CDCD , #FFFAFA);
+        padding: 50px 80px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        border-radius: 3px;
+    }
+
+    .form-container .title {
+        color: #333;
+        font-family: Microsoft JhengHei ;
+        font-weight: 600;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+        margin: 0 0 40px;
+    }
+
+.form-horizontal .form-group {
+    background-color: #fff;
+    margin: 0 0 5px;
+    border-radius: 3px;
 }
-.form-signin .checkbox {
-  font-weight: 400;
+
+    .form-horizontal .form-group:nth-child(3) {
+        margin-bottom: 20px;
+    }
+
+.form-horizontal .input-icon {
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+    line-height: 42px;
+    height: 40px;
+    width: 25px;
+    margin: 0 0 0 4px;
+    vertical-align: top;
+    display: inline-block;
 }
-.form-signin .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
+
+.form-horizontal .form-control {
+    color: #222;
+    background-color: transparent;
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: calc(100% - 33px);
+    height: 40px;
+    padding: 0 5px;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    display: inline-block;
+    transition: all 0.3s;
 }
-.form-signin .form-control:focus {
-  z-index: 2;
+
+    .form-horizontal .form-control:focus {
+        box-shadow: none;
+        border: none;
+    }
+
+    .form-horizontal .form-control::placeholder {
+        color: #b5b5b5;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+
+.form-horizontal .btn {
+    font-family: Microsoft JhengHei;
+    color: #555;
+    background: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 10px 15px 8px;
+    margin: 0 0 20px;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+
+    .form-horizontal .btn:hover,
+    .form-horizontal .btn:focus {
+        color: #555;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1),0 0 10px rgba(0,0,0,0.1) inset;
+        outline: none;
+    }
+
+.form-horizontal .forgot-pass {
+    font-size: 14px;
+    font-weight: 500;
+    width: calc(100% - 105px);
+    margin: 0 0 20px 0;
+    display: inline-block;
 }
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+    .form-horizontal .forgot-pass a {
+        color: #333;
+        transition: all 0.3s ease 0s;
+    }
+
+        .form-horizontal .forgot-pass a:hover {
+            color: #000;
+            text-shadow: 0 0 2px rgba(0,0,0,0.2);
+        }
+
+.form-horizontal .user-signup {
+    color: #333;
+    background: #B9F2E7;
+    text-align: center;
+    width: 100px;
+    padding: 10px 15px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
 }
+
+    .form-horizontal .user-signup:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+    }

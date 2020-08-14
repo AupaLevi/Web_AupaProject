@@ -1,0 +1,9 @@
+﻿.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+    transition: all .6s linear;
+    transform: scale(2.2);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

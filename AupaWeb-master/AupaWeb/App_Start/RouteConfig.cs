@@ -35,6 +35,12 @@ namespace AupaWeb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+              name: "Introduce",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "About", action = "AupaIntroduce", id = UrlParameter.Optional }
+          );
         }
     }
 }

@@ -7,11 +7,12 @@
     <meta name="author" content="">
     <title>@ViewBag.Title - Dashboard Template for Bootstrap</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/navbar.css")
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <img src="~/Content/image/aupalogo.jpg" alt="aupaweblogo" width="70" height="70" />
+        <img src="~/Content/image/aupa.jpg" alt="aupaweblogo" width="130" height="70" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +27,17 @@
                     <a class="nav-link" href="/Post/AddNewPost">公告新增</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/PhoneBook/PhoneBookSearch">分機查詢</a>
+                    <a class="nav-link" style="color:red" href="/PhoneBook/PhoneBookSearch">分機查詢</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
+                        關於歐帕AUPA
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/About/AupaIntroduce/">組織團隊</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Coming Soon~</a>
+                    </div>
                 </li>
             </ul>
         </div>

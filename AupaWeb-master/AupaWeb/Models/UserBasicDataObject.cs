@@ -14,6 +14,9 @@ namespace AupaWeb.Models
         private string zza08;   //Role
         private string zza09;
 
+        private string zzb01;
+        private string zzb02;
+
         public string Zza01 { get => zza01; set => zza01 = value; }
         public string Zza02 { get => zza02; set => zza02 = value; }
         public string Zza03 { get => zza03; set => zza03 = value; }
@@ -24,5 +27,8 @@ namespace AupaWeb.Models
         public string Zza08 { get => zza08; set => zza08 = value; }
 
         public string Zza09 { get => zza09; set => zza09 = value; }
+        public string Zzb01 { get => zzb01; set => zzb01 = value; }
+        public string Zzb02 { get => zzb02; set => zzb02 = value; }
+       
     }
 }

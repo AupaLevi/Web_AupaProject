@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace AupaWeb.Controllers
 {
     public class PhonebookController : Controller
@@ -12,6 +13,7 @@ namespace AupaWeb.Controllers
         // GET: Phonebook
         public ActionResult PhoneBookSearch()
         {
+            
             PhoneBookSQLConnector phoneBookSQLConnector = new PhoneBookSQLConnector();
             PhoneBookViewModel phoneBookViewModel = new PhoneBookViewModel();
             phoneBookViewModel.SelectListItems = phoneBookSQLConnector.getOfficeItem();
@@ -20,9 +22,18 @@ namespace AupaWeb.Controllers
         }
 
         [HttpPost, ActionName("SearchPhoneBook")]
+        [ValidateAntiForgeryToken]
+
         [MultiButton("Search")]
         public ActionResult Search(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
+
             string sqlWhereString;
             string sqlAndString;
             if (viewModel.ColValue == "" || viewModel.ColValue == null)
@@ -50,15 +61,21 @@ namespace AupaWeb.Controllers
             phoneBookViewModel.UserBasicDataList = phoneBookSQLConnector.GetUserBasicDataByCriteria(sqlWhereString, sqlAndString);
             phoneBookViewModel.SelectListItems = phoneBookSQLConnector.getOfficeItem();
 
-            TempData["phoneBookViewModel"] = phoneBookViewModel;
+            TempData["PhoneBookViewModel"] = phoneBookViewModel;
 
-            return Redirect("BackToPhoneBookSearch"); 
+            return Redirect("BackToPhoneBookSearch");
         }
 
         [HttpPost, ActionName("SearchPhoneBook")]
         [MultiButton("Audit")]
         public ActionResult Audit(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -97,6 +114,12 @@ namespace AupaWeb.Controllers
         [MultiButton("TDD")]
         public ActionResult TDD(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -135,6 +158,12 @@ namespace AupaWeb.Controllers
         [MultiButton("TD")]
         public ActionResult TD(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -173,6 +202,12 @@ namespace AupaWeb.Controllers
         [MultiButton("ALS")]
         public ActionResult ALS(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -210,6 +245,12 @@ namespace AupaWeb.Controllers
         [MultiButton("TS")]
         public ActionResult TS(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -248,6 +289,12 @@ namespace AupaWeb.Controllers
         [MultiButton("IO")]
         public ActionResult IO(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -286,6 +333,12 @@ namespace AupaWeb.Controllers
         [MultiButton("IT")]
         public ActionResult IT(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -324,6 +377,12 @@ namespace AupaWeb.Controllers
         [MultiButton("BDO")]
         public ActionResult BDO(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -362,6 +421,12 @@ namespace AupaWeb.Controllers
         [MultiButton("BD")]
         public ActionResult BD(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -400,6 +465,12 @@ namespace AupaWeb.Controllers
         [MultiButton("FAO")]
         public ActionResult FAO(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -438,6 +509,12 @@ namespace AupaWeb.Controllers
         [MultiButton("FA")]
         public ActionResult FA(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -476,6 +553,12 @@ namespace AupaWeb.Controllers
         [MultiButton("MD")]
         public ActionResult MD(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -514,6 +597,12 @@ namespace AupaWeb.Controllers
         [MultiButton("PD")]
         public ActionResult PD(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -552,6 +641,12 @@ namespace AupaWeb.Controllers
         [MultiButton("PKG")]
         public ActionResult PKG(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -590,6 +685,12 @@ namespace AupaWeb.Controllers
         [MultiButton("PMA")]
         public ActionResult PMA(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -628,6 +729,12 @@ namespace AupaWeb.Controllers
         [MultiButton("ENG")]
         public ActionResult ENG(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -666,6 +773,12 @@ namespace AupaWeb.Controllers
         [MultiButton("QA")]
         public ActionResult QA(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -704,6 +817,12 @@ namespace AupaWeb.Controllers
         [MultiButton("QC")]
         public ActionResult QC(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -742,6 +861,12 @@ namespace AupaWeb.Controllers
         [MultiButton("PP")]
         public ActionResult PP(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -780,6 +905,12 @@ namespace AupaWeb.Controllers
         [MultiButton("WH")]
         public ActionResult WH(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -818,6 +949,12 @@ namespace AupaWeb.Controllers
         [MultiButton("QS")]
         public ActionResult QS(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -853,47 +990,15 @@ namespace AupaWeb.Controllers
         }
 
         [HttpPost, ActionName("SearchPhoneBook")]
-        [MultiButton("AD")]
-        public ActionResult AD(PhoneBookViewModel viewModel)
-        {
-            string sqlWhereString;
-            string sqlAndString;
-
-            if (viewModel.ColValue == "" || viewModel.ColValue == null)
-            {
-                sqlWhereString = " zza06 LIKE '%" + viewModel.Zza06 + "910100' ";
-            }
-            else
-            {
-                sqlWhereString = "zza04 LIKE '%" + viewModel.ColValue + "%' ";
-
-            }
-            if (viewModel.Zza06 == "" || viewModel.Zza06 == null)
-            {
-                sqlAndString = "";
-            }
-            else
-            {
-                sqlAndString = " zza06 = '" + viewModel.Zza06 + "' ";
-            }
-
-
-
-            PhoneBookSQLConnector phoneBookSQLConnector = new PhoneBookSQLConnector();
-
-            PhoneBookViewModel phoneBookViewModel = new PhoneBookViewModel();
-            phoneBookViewModel.UserBasicDataList = phoneBookSQLConnector.GetUserBasicDataByCriteria(sqlWhereString, sqlAndString);
-            phoneBookViewModel.SelectListItems = phoneBookSQLConnector.getOfficeItem();
-
-            TempData["phoneBookViewModel"] = phoneBookViewModel;
-
-            return Redirect("BackToPhoneBookSearch");
-        }
-
-        [HttpPost, ActionName("SearchPhoneBook")]
         [MultiButton("HR")]
         public ActionResult HR(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -932,6 +1037,12 @@ namespace AupaWeb.Controllers
         [MultiButton("PUR")]
         public ActionResult PUR(PhoneBookViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("PhoneBook/PhoneBookSearch");
+            }
+
+            TempData["LastPostFormData"] = viewModel;
             string sqlWhereString;
             string sqlAndString;
 
@@ -987,6 +1098,12 @@ namespace AupaWeb.Controllers
         public ActionResult BackToPhoneBookSearch()
         {
             PhoneBookViewModel phoneBookViewModel = (PhoneBookViewModel)TempData["phoneBookViewModel"];
+            if (TempData["LastPostFormData"] == null)
+            {
+                return RedirectToAction("PhoneBookSearch");
+            }
+            var objModel = (Models.PhoneBookViewModel)TempData["LastPostFormData"];
+
             return View("PhoneBookSearch", phoneBookViewModel);
         }
 
